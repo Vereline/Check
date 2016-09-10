@@ -1,0 +1,64 @@
+        public void Pass_Exam(string a)
+        {
+            if (a == "No")
+            {
+                Console.WriteLine("Not Passed");
+            }
+            else if (a == "Yes")
+            {
+                Console.WriteLine("Passed");
+            }
+            else
+                Console.WriteLine("I dont know");
+
+        }
+
+
+        public class MarkCollection
+        {
+
+            private int len = 0;
+
+            public int Count { get { return arr.Length; } }
+
+            private int[] arr;
+
+
+            public int this[int i]
+            {
+                get { return arr[i]; }
+                set { arr[i] = value; }
+            }
+
+            public MarkCollection(int capacity)
+            {
+                arr = new int[capacity];
+                // create array
+            }
+
+            public float AverageScore()
+            {
+                int score = 0;
+                for (int i = 0; i < arr.Length; i++)
+                    score += arr[i];
+                return (float)score / arr.Length;
+            }
+        }
+
+        public int counter;
+
+        protected MarkCollection _marks;
+
+        public abstract int this[string subject]
+        {
+            get;// { return z ; }
+            protected set;// { _marks[subject] = value; }
+        }
+
+        public void showaveragescore()
+        {
+            float Aver = _marks.AverageScore();
+            Console.WriteLine("the average is {0}", Aver);
+        }
+    }
+}
